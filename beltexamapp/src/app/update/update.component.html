@@ -1,0 +1,20 @@
+<h3>Edit this pet</h3>
+<div *ngIf="errors">
+    <div *ngFor="let x of errors">
+      <span>{{x}}</span>
+    </div>
+</div>
+<form (submit)="submitEdits()" method="post">
+    <label>Name:</label><br>
+    <p>Pet Name:</p><input type="text" name="name" [(ngModel)]="pet.name" value="{{pet.name}}" /><br>
+    <p>Pet type:</p><input type="text" name="type" [(ngModel)]="pet.type" value="{{pet.type}}" /><br>
+    <p>Description:</p><input type="text" name="description" [(ngModel)]="pet.description" value="{{pet.description}}" /><br>
+    <ul>
+      <li><p>Skill 1:</p><input type="text" name="skills_1" [(ngModel)]="pet.skills[0]" value="{{pet.skills[0]}}" /></li>
+      <li><p>Skill 2:</p><input type="text" name="skills_2" [(ngModel)]="pet.skills[1]" value="{{pet.skills[1]}}" /></li>
+      <li><p>Skill 3:</p><input type="text" name="skills_3" [(ngModel)]="pet.skills[2]" value="{{pet.skills[2]}}" /></li>
+    </ul>
+    <br><br>
+    <button type="submit">Edit Pet</button>
+    <button [routerLink]="['/home']">Cancel</button>
+</form>
